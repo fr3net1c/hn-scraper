@@ -107,7 +107,7 @@ func main() {
 	})
 
 	c.OnError(func(r *colly.Response, err error) {
-		log.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+		log.Println("URL:", r.Request.URL, "Поломалось:", r, "\nОшибка:", err)
 	})
 
 	url := "https://news.ycombinator.com/"
@@ -115,9 +115,9 @@ func main() {
 		url = fmt.Sprintf("https://news.ycombinator.com/news?p=%d", page)
 	}
 	
-	headerColor.Printf("\n╔═══════════════════════════════════════════════════════╗\n")
-	headerColor.Printf("║              HACKER NEWS - PAGE %-3d                      ║\n", page)
-	headerColor.Printf("╚═══════════════════════════════════════════════════════════╝\n\n")
+	headerColor.Printf("\n╔═══════════════════════════════════════════════════════╗\n")
+	headerColor.Printf("  ║                       PAGE %-3d                       ║\n", page)
+	headerColor.Printf("  ╚═══════════════════════════════════════════════════════╝\n\n")
 	
 	err := c.Visit(url)
 	if err != nil {
@@ -157,6 +157,6 @@ func main() {
 	}
 	
 	fmt.Println()
-	headerColor.Printf("Usage:  ./hn [page_number]\n")
-	headerColor.Printf("Example: ./hn 2    # Scrape page 2\n\n")
+	headerColor.Printf("Как использовать:  ./[название бинарника] [страница]\n")
+	headerColor.Printf("Example: ./hn 2    # Страница 2\n\n")
 }
