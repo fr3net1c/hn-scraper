@@ -1,6 +1,6 @@
 module frenetic.nm/scraper
 
-go 1.23.0
+go 1.23
 
 require (
 	github.com/fatih/color v1.16.0
